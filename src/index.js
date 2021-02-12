@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const config = require('../config.json');
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
