@@ -7,8 +7,6 @@ require('dotenv/config');
 
 const client = new Discord.Client({ disableMentions: "everyone" });
 
-const prefix = "!";
-
 client.on('ready', () => {
     db.defaults({ count: 0 })
         .write()
@@ -36,9 +34,9 @@ function shuffle(array) {
 client.on("message", async function (message) {
 
     if (message.author.bot) return;
-    if (!message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(process.env.PREFIX)) return;
 
-    const commandBody = message.content.slice(prefix.length);
+    const commandBody = message.content.slice(process.env.PREFIX.length);
     const args = commandBody.split(" ");
     const command = args.shift().toLowerCase();
 
