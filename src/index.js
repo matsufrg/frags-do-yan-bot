@@ -4,6 +4,7 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
+require('dotenv/config');
 
 const client = new Discord.Client({ disableMentions: "everyone" });
 
@@ -93,4 +94,4 @@ client.on("message", async function (message) {
 
 });
 
-client.login(config.BOT_TOKEN);
+client.login(process.env.TOKEN);
